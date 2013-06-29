@@ -1,0 +1,10 @@
+{
+  "name": "progress-full-width",
+  "version": "0.0.2",
+  "main": ["bar.js", "bar.min.js"],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}
