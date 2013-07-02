@@ -1,6 +1,6 @@
 {
-  "name": "progress-full-width",
-  "version": "0.0.2",
+  "name": "progress-bars",
+  "version": "0.0.3",
   "main": ["bar.js", "bar.min.js"],
   "ignore": [
     "**/.*",

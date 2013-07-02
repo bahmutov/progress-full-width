@@ -4,9 +4,11 @@ Simple progress bar at the bottom of the browser window. If multiple
 bars are added, they are stacked. You can also add progress bar with
 auto timers.
 
+    bower install progress-bars
+
 ## Example
 
-    <script src="bar.js"></script>
+    <script src="components/progress-full-width/bar.js"></script>
     <script>
       var bar = progressFullWidth({
         height: 10 // pixels

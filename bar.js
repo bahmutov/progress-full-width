@@ -1,4 +1,4 @@
-/*! progress-full-width - v0.0.2 - 2013-06-29 */
+/*! progress-full-width - v0.0.3 - 2013-07-01 */
 (function (window) {
     var bars = [];
 
@@ -57,19 +57,28 @@
             move: function (pixels) {
                 this._element.style.bottom = parseInt(this._element.style.bottom, 10) + pixels + 'px';
             },
+
+            _elapsed: function () {
+                if (!this.started) {
+                    throw new Error('Cannot get started time');
+                }
+                var elapsed = new Date() - this.started;
+                var elapsedSeconds = elapsed / 1000;
+                return elapsedSeconds;
+            },
+
             timer: function (durationSeconds) {
                 if (durationSeconds < 10) {
                     throw new Error('Invalid duration ' + durationSeconds + ' should be seconds');
                 }
-                if (this.timer) {
-                    clearInterval(this.timer);
+                if (this._timer) {
+                    clearInterval(this._timer);
                 }
                 var bar = this;
                 bar.started = new Date();
                 bar.duration = durationSeconds;
-                bar.timer = setInterval(function () {
-                    var elapsed = new Date() - bar.started;
-                    var elapsedSeconds = elapsed / 1000;
+                bar._timer = setInterval(function () {
+                    var elapsedSeconds = bar._elapsed();
                     var elapsedPercent = elapsedSeconds / bar.duration * 100;
                     if (elapsedPercent >= 100) {
                         clearInterval(bar.timer);
@@ -77,6 +86,27 @@
                     }
                     bar.progress(elapsedPercent);
                 }, 1000);
+            },
+            pause: function () {
+                if (this._timer) {
+                    clearInterval(this._timer);
+                    // console.log(this);
+                    this.duration = this.duration - this._elapsed();
+                    delete this.started;
+                    delete this._timer;
+                } else {
+                    console.log('timer has already been paused');
+                }
+            },
+            resume: function () {
+                if (this._timer) {
+                    console.log('timer is already running');
+                    return;
+                }
+                // console.log('resuming with duration', this.duration);
+                if (this.duration > 10) {
+                    this.timer(this.duration);
+                }
             }
         };
         if (options.progress || options.value) {
@@ -99,5 +129,5 @@
         });
     };
 
-    window.progressFullWidth.version = '0.0.2';
+    window.progressFullWidth.version = '0.0.3';
 }(this));
