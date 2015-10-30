@@ -4,6 +4,7 @@
   "description": "Simple progress bar(s) at the bottom of the browser window.",
   "main": "bar.js",
   "scripts": {
+    "build": "uglifyjs -o bar.min.js bar.js",
     "test": "eslint bar.js"
   },
   "repository": {
@@ -24,6 +25,12 @@
   },
   "homepage": "https://github.com/bahmutov/progress-full-width#readme",
   "devDependencies": {
-    "eslint": "1.7.3"
-  }
+    "eslint": "1.7.3",
+    "pre-git": "0.6.2",
+    "uglify-js": "2.5.0"
+  },
+  "pre-commit": [
+    "npm test",
+    "npm run build"
+  ]
 }
