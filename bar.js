@@ -12,6 +12,8 @@
     }
 
     api.init = function init(opts) {
+        console.assert(typeof document === 'object', 'missing document');
+
         var options = opts || {};
         options.id = options.id || 'bar';
         options.color = options.color || '#333333';
@@ -68,9 +70,12 @@
                 return elapsedSeconds;
             },
 
-            timer: function (durationSeconds) {
+            timer: function (durationSeconds, interval) {
                 if (durationSeconds < 10) {
                     throw new Error('Invalid duration ' + durationSeconds + ' should be seconds');
+                }
+                if (!interval) {
+                    interval = 100;
                 }
                 if (this._timer) {
                     clearInterval(this._timer);
@@ -86,7 +91,7 @@
                         elapsedPercent = 100;
                     }
                     bar.progress(elapsedPercent);
-                }, 1000);
+                }, interval);
             },
             pause: function () {
                 if (this._timer) {
@@ -130,7 +135,7 @@
         });
     };
 
-    api.version = '0.0.3';
+    api.version = '1.0.0';
 
     (function registerApi(theApi, name) {
         if (typeof window === 'object') {

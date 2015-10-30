@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>progress-bars demo</title>
+</head>
+<body>
+  <h1>progress-bars demo</h1>
+  Notice several progress bars at the bottom of this page.
+  <script src="bar.js"></script>
+  <script>
+  var bar = progressBars.init({
+    height: 20,
+    color: '#ff00ff'
+  });
+  console.assert(bar, 'did not create bar');
+  bar.timer(10);
+  </script>
+</body>
+</html>
