@@ -2,11 +2,13 @@
 <html>
 <head>
   <title>progress-bars demo</title>
+  <script src="bar.js"></script>
 </head>
 <body>
   <h1>progress-bars demo</h1>
   Notice several progress bars at the bottom of this page.
-  <script src="bar.js"></script>
+  <button id="reset">reset bar</button>
+
   <script>
   var bar = progressBars.init({
     height: 20,
@@ -14,6 +16,10 @@
   });
   console.assert(bar, 'did not create bar');
   bar.timer(10);
+  document.querySelector('#reset')
+    .addEventListener('click', function reset() {
+      bar.timer(10);
+    });
   </script>
 </body>
 </html>
