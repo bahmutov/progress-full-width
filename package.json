@@ -1,0 +1,29 @@
+{
+  "name": "progress-bars",
+  "version": "1.0.0",
+  "description": "Simple progress bar(s) at the bottom of the browser window.",
+  "main": "bar.js",
+  "scripts": {
+    "test": "eslint bar.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/progress-full-width.git"
+  },
+  "keywords": [
+    "progress",
+    "bar",
+    "window",
+    "html",
+    "dom"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/progress-full-width/issues"
+  },
+  "homepage": "https://github.com/bahmutov/progress-full-width#readme",
+  "devDependencies": {
+    "eslint": "1.7.3"
+  }
+}

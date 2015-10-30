@@ -1,6 +1,7 @@
 /*! progress-full-width - v0.0.3 - 2013-07-01 */
 (function (window) {
     var bars = [];
+    var api = {};
 
     function totalHeight() {
         var sum = 0;
@@ -10,7 +11,7 @@
         return sum;
     }
 
-    window.progressFullWidth = function (opts) {
+    api.init = function init(opts) {
         var options = opts || {};
         options.id = options.id || 'bar';
         options.color = options.color || '#333333';
@@ -122,12 +123,21 @@
 
     function identity(item) { return item; }
 
-    window.progressFullWidth.remove = function () {
+    api.remove = function remove() {
         var items = bars.map(identity);
         items.forEach(function (bar) {
             bar.remove();
         });
     };
 
-    window.progressFullWidth.version = '0.0.3';
+    api.version = '0.0.3';
+
+    (function registerApi(theApi, name) {
+        if (typeof window === 'object') {
+            window[name] = api;
+        }
+        if (typeof global === 'object') {
+            global[name] = api;
+        }
+    }(api, 'progressBars'));
 }(this));
