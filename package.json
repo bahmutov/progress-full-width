@@ -1,6 +1,6 @@
 {
   "name": "progress-bars",
-  "version": "1.0.0",
+  "version": "0.0.0-semantic-release",
   "description": "Simple progress bar(s) at the bottom of the browser window.",
   "main": "bar.js",
   "scripts": {
@@ -31,6 +31,7 @@
   "homepage": "https://github.com/bahmutov/progress-full-width#readme",
   "devDependencies": {
     "pre-git": "3.8.4",
+    "semantic-release": "^4.3.5",
     "standard": "^7.1.2",
     "standard-format": "^2.2.1",
     "uglify-js": "2.5.0"
