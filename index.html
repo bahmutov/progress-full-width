@@ -3,6 +3,12 @@
 <head>
   <title>progress-bars demo</title>
   <script src="bar.js"></script>
+  <style>
+  body {
+    /* try making the page tall to debug position bug */
+    min-height: 1000px;
+  }
+  </style>
 </head>
 <body>
   <h1>progress-bars demo</h1>
@@ -15,7 +21,7 @@
     color: '#ff00ff'
   });
   console.assert(bar, 'did not create bar');
-  bar.timer(10);
+  bar.timer(100);
   document.querySelector('#reset')
     .addEventListener('click', function reset() {
       bar.timer(10);

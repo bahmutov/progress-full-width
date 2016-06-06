@@ -22,7 +22,7 @@
     var element = document.createElement('div')
     element.setAttribute('id', options.id)
     var style = element.style
-    style.position = 'absolute'
+    style.position = 'fixed'
     style.width = '0'
     style.height = options.height + 'px'
     style.left = '0'
