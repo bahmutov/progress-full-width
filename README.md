@@ -7,6 +7,10 @@ auto timers.
     npm install progress-bars
     bower install progress-bars
 
+[![Build Status][build]][link]
+[build]: https://travis-ci.org/bahmutov/progress-bars.svg?branch=master
+[link]: https://travis-ci.org/bahmutov/progress-bars
+
 ## Example
 
     <!-- if installed with bower -->

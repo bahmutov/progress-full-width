@@ -5,7 +5,12 @@
   "main": "bar.js",
   "scripts": {
     "build": "uglifyjs -o bar.min.js bar.js",
-    "test": "eslint bar.js"
+    "test": "echo No unit tests",
+    "commit": "commit-wizard",
+    "lint": "standard --verbose *.js",
+    "format": "standard-format -w *.js",
+    "pretest": "npm run format && npm run lint",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -25,12 +30,22 @@
   },
   "homepage": "https://github.com/bahmutov/progress-full-width#readme",
   "devDependencies": {
-    "eslint": "1.7.3",
-    "pre-git": "0.6.2",
+    "pre-git": "3.8.4",
+    "standard": "^7.1.2",
+    "standard-format": "^2.2.1",
     "uglify-js": "2.5.0"
   },
-  "pre-commit": [
-    "npm test",
-    "npm run build"
-  ]
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [
+        "npm test",
+        "npm run build"
+      ],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  }
 }
