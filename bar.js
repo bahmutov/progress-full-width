@@ -27,6 +27,10 @@
     style.height = options.height + 'px'
     style.left = '0'
 
+    if (options.zindex) {
+      style['z-index'] = options.zindex
+    }
+
     if (options.bottom) {
       style.bottom = '0'
       bars.forEach(function (eachBar) {

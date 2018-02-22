@@ -9,6 +9,7 @@ auto timers.
 
 [![Build Status][build]][link]
 [![semantic-release][semantic-image] ][semantic-url]
+
 [build]: https://travis-ci.org/bahmutov/progress-full-width.svg?branch=master
 [link]: https://travis-ci.org/bahmutov/progress-full-width
 [semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
@@ -28,7 +29,8 @@ auto timers.
       var bar2 = progressBars.init({
         id: 'bar2',
         color: '#00ff00',
-        height: 10
+        height: 10,
+        zindex: 1001
       });
       bar2.progress(25);
       var bar3 = progressBars.init();

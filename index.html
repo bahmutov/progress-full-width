@@ -18,7 +18,8 @@
   <script>
   var bar = progressBars.init({
     height: 20,
-    color: '#ff00ff'
+    color: '#ff00ff',
+    zindex: 101
   });
   console.assert(bar, 'did not create bar');
   bar.timer(100);
