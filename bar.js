@@ -42,7 +42,12 @@
 
     style.backgroundColor = options.color
     element.classList.add('progressFullWidth')
-    document.body.appendChild(element)
+    if (options.selector) {
+      var container = document.querySelector(options.selector)
+      container.appendChild(element)
+    } else {
+      document.body.appendChild(element)
+    }
 
     var bar = {
       _element: element,

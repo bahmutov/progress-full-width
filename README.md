@@ -37,6 +37,19 @@ auto timers.
       bar3.timer(60); // 1 minute
     </script>
 
+
+You can also place the progress bar element inside another element using selector option
+
+```js
+progressBar.init({
+  selector: '.somewhere'
+})
+// will produce DOM structure
+// <div class="somewhere>
+//   <div id="bar" ...>
+// </div>
+```
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015

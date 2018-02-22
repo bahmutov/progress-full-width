@@ -8,6 +8,11 @@
     /* try making the page tall to debug position bug */
     min-height: 1000px;
   }
+  .something {
+    width: 600px;
+    height: 100px;
+    border: 1px solid blue;
+  }
   </style>
 </head>
 <body>
@@ -15,11 +20,16 @@
   Notice several progress bars at the bottom of this page.
   <button id="reset">reset bar</button>
 
+  <div class="something">
+    this is another div, we can put bar here
+  </div>
+
   <script>
   var bar = progressBars.init({
     height: 20,
     color: '#ff00ff',
-    zindex: 101
+    zindex: 101,
+    selector: '.something'
   });
   console.assert(bar, 'did not create bar');
   bar.timer(100);
